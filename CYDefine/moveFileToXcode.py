@@ -13,7 +13,6 @@
 import os
 
 def  move_files():
-    os.system("echo 'chengyan251' | sudo -S chmod -R 777 /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File\ Templates/User\ Interface")
     os.system("echo 'chengyan251' | sudo -S cp -R /Users/chengyan/Documents/Defines/CYDefine /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File\ Templates/User\ Interface")
 
 if __name__ == '__main__':

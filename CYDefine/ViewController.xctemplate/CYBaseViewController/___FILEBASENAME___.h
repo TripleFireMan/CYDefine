@@ -6,7 +6,6 @@
 ___IMPORTHEADER_cocoaSubclass___
 
 @interface ___FILEBASENAME___: ___VARIABLE_cocoaSubclass___
-#pragma mark- as
 
 #pragma mark- model
 

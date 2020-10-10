@@ -16,14 +16,21 @@
 
 @implementation ___FILEBASENAME___
 
-#pragma mark - def
-
 #pragma mark - override
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.page = 1;
     self.title = @"标题";
+}
+
+#pragma mark - api
+- (void) loadData
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    });
 }
 
 - (void) setupSubView
@@ -39,21 +46,7 @@
     }];
 }
 
-#pragma mark - api
-- (void) loadData
-{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView.mj_footer endRefreshing];
-    });
-}
-#pragma mark - model event
-#pragma mark 1 notification
-#pragma mark 2 KVO
-
-#pragma mark - view event
-#pragma mark 1 target-action
-#pragma mark 2 delegate dataSource protocol
+#pragma mark - delegate dataSource protocol
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@""];
@@ -74,7 +67,7 @@
 {
     return 10.f;
 }
-#pragma mark - private
+
 #pragma mark - getter / setter
 - (NSMutableArray *) dataSource
 {
@@ -110,6 +103,7 @@
     }
     return _tableView;
 }
-#pragma mark -
+
+#pragma mark - private
 
 @end
