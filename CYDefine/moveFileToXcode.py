@@ -11,9 +11,21 @@
 '''
 
 import os
+def test():
+    # print("123")
+    str = os.getcwd()
+    print(str)
+
+    print(os.getcwd())
+    print(os.path.abspath(os.path.dirname(__file__)))
+    print(os.path.abspath('.'))
+    print(os.path.abspath(os.path.join(os.getcwd(), "../")))
+
 
 def  move_files():
-    os.system("echo 'chengyan251' | sudo -S cp -R /Users/chengyan/Documents/Defines/CYDefine /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File\ Templates/User\ Interface")
+    file_location_path = os.path.abspath(os.path.join(os.getcwd(), "../"))
+    os.system("echo 'chengyan251' | sudo -S cp -R {0} /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Templates/File\ Templates/User\ Interface".format(file_location_path))
 
 if __name__ == '__main__':
     move_files()
+    # test()
